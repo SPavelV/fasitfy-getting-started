@@ -3,7 +3,9 @@
     "start": "fastify start server.js"
   },
   "dependencies": {
+    "@fastify/mongodb": "^6.0.1",
     "fastify": "^4.5.3",
-    "fastify-cli": "^5.4.1"
+    "fastify-cli": "^5.4.1",
+    "fastify-plugin": "^4.2.1"
   }
 }

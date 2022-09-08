@@ -1,5 +1,6 @@
 import Fastify from 'fastify';
-import { firstRoute } from './first-route';
+import dbConnector from './db-connector';
+import firstRoute from './first-route';
 
 /**
  * @type {import('fastify').FastifyInstance} Instance of Fastify
@@ -8,6 +9,7 @@ const fastify = Fastify({
   logger: true,
 });
 
+fastify.register(dbConnector);
 fastify.register(firstRoute);
 
 const start = async () => {
