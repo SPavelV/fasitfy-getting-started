@@ -8,7 +8,7 @@ const routes = [
   },
   {
     method: 'GET',
-    url: '/apl/blogs/:id',
+    url: '/api/blogs/:id',
     handler: blogController.getBlog,
   },
   {

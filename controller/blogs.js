@@ -23,6 +23,7 @@ const getBlog = async (req, reply) => {
   const id = Number(req.params.id); // blog ID
 
   const blog = blogs.find((blog) => blog.id === id);
+  console.log('blog :>> ', blog);
   return blog;
 };
 

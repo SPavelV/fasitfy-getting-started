@@ -6,6 +6,11 @@ fastify.get('/', function (req, reply) {
   reply.send({ hello: 'world' });
 });
 
+const blogRoutes = require('./routes/blogs');
+blogRoutes.forEach((route) => {
+  fastify.route(route);
+});
+
 fastify.listen({ port: 3000 }, function (err, address) {
   if (err) {
     fastify.log.error(err);
