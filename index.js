@@ -2,6 +2,27 @@ const fastify = require('fastify')({
   logger: true,
 });
 
+const fastifyEnv = require('@fastify/env');
+
+const options = {
+  confKey: 'config',
+  schema: {
+    type: 'object',
+    required: ['PORT'],
+    properties: {
+      PORT: {
+        type: 'string',
+        default: 1000,
+      },
+    },
+  },
+};
+
+fastify.register(fastifyEnv, options).ready((err) => {
+  if (err) console.error(err);
+  console.log('fastify.config ', fastify.config);
+});
+
 fastify.get('/', function (req, reply) {
   reply.send({ hello: 'world' });
 });
