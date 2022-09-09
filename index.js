@@ -23,6 +23,11 @@ fastify.register(fastifyEnv, options).ready((err) => {
   console.log('fastify.config ', fastify.config);
 });
 
+// hooks
+fastify.addHook('onRoute', (routeOptions) => {
+  console.log(`Registered route: ${routOptions.url}`);
+});
+
 fastify.get('/', function (req, reply) {
   reply.send({ hello: 'world' });
 });
